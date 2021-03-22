@@ -19,7 +19,6 @@ import javax.swing.*;
 	    txtInput = new JTextArea(10,40);
 	    txtInput.addKeyListener(myKeyListener);
 	    add(new JScrollPane(txtInput), BorderLayout.NORTH);
-	   
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    pack();
 	    setVisible(true);
@@ -30,17 +29,8 @@ import javax.swing.*;
 		public Connexion() throws Exception {
 			 factory = new ConnectionFactory();
 		     factory.setHost("localhost");
-		     /*factory.setHost("10.13.0.95");
-		 	factory.setUsername("chadha");
-		 	factory.setPassword("1234");
-		 	//factory.setPort(5672);
-		 	factory.setVirtualHost("/");*/
 		}
 	}
-
-
-	// You don't need a keylistener to listen on enter-presses. Use a
-	// actionlistener instead, as shown below.
 	public String getMsg() {return msg;}
 	private class MyKeyListener extends KeyAdapter {
 	    @Override
@@ -56,7 +46,6 @@ import javax.swing.*;
 						{
 						key="";
 						channel.basicPublish("", QUEUE_NAME, null, key.getBytes());
-						System.out.println("fasaaaa5 " );
 						}
 			    	if(e.getKeyChar() == KeyEvent.VK_ENTER) {
 			    		channel.basicPublish("", QUEUE_NAME, null, "\n".getBytes());
@@ -85,8 +74,6 @@ import javax.swing.*;
 	private final static String QUEUE_NAMEI= "i1" ;
 	public static void main(String [] args) throws Exception {
 		new Producer1();
-		new Connexion();
-		
+		new Connexion();	
 	}
-
 	}

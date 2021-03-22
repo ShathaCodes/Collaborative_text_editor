@@ -28,17 +28,8 @@ package tp1;
 		public Connexion() throws Exception {
 			 factory = new ConnectionFactory();
 		     factory.setHost("localhost");
-		     /*factory.setHost("10.13.0.95");
-		 	factory.setUsername("chadha");
-		 	factory.setPassword("1234");
-		 	//factory.setPort(5672);
-		 	factory.setVirtualHost("/");*/
 		}
 	}
-
-
-	// You don't need a keylistener to listen on enter-presses. Use a
-	// actionlistener instead, as shown below.
 	public String getMsg() {return msg;}
 	private class MyKeyListener extends KeyAdapter {
 	    @Override
@@ -54,7 +45,6 @@ package tp1;
 						{
 						key="";
 						channel.basicPublish("", QUEUE_NAME, null, key.getBytes());
-						System.out.println("fasaaaa5 " );
 						}
 			    	if(e.getKeyChar() == KeyEvent.VK_ENTER) {
 			    		channel.basicPublish("", QUEUE_NAME, null, "\n".getBytes());

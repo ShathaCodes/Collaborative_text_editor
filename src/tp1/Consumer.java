@@ -41,7 +41,6 @@ public class Consumer {
 				return str.substring(0, position)+ str.substring(position+1);
 		    return str.substring(0, position) + ch + str.substring(position);
 		}
-		
 		static String msg1 = "";
 		static String msg2 ="";
 		static int i1 =0;
@@ -51,9 +50,6 @@ public class Consumer {
 		  
 	    ConnectionFactory factory = new ConnectionFactory();
 	    factory.setHost("localhost");
-	    //factory.setUsername("chadha");
-	    //factory.setPassword("1234");
-	    //factory.setVirtualHost("/");
 	    Connection connection = factory.newConnection();
 	    Channel channel = connection.createChannel();
 	    
@@ -64,7 +60,6 @@ public class Consumer {
 	    DeliverCallback deliverCallback1 = (consumerTag, delivery) -> {
 	        String message = new String(delivery.getBody(), "UTF-8");
 	        System.out.println(" [x2] Received '" + message + "'");
-	        //c.area2.append(message + "\n");
 	        msg1=message;
 	    };
 	    channel.basicConsume(QUEUE_NAME1, true, deliverCallback1, consumerTag -> { });
